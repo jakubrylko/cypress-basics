@@ -1,2 +1,2 @@
-# cypress-basics
+# Cypress basics
 Cypress basics
