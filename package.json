@@ -1,0 +1,33 @@
+{
+  "name": "cypress-basics",
+  "version": "1.0.0",
+  "description": "Cypress basics - test automation",
+  "main": "index.js",
+  "scripts": {
+    "open": "npx cypress open",
+    "run-dev": "npx cypress run --env configFile=dev",
+    "open-prod": "npx cypress open --env configFile=prod",
+    "all": "npx cypress run --record --key 015f7d4a-0896-4a26-b27e-934584d537d6",
+    "spec": "npx cypress run --spec 'cypress/integration/UI/alerts.js' --headed",
+    "chrome": "npx cypress run --browser chrome --spec 'cypress/integration/API/api-test.js' --headed",
+    "firefox": "npm run spec -- --browser firefox",
+    "browser": "npm run spec -- --browser firefox && npm run spec -- --browser chrome",
+    "delete:reports": "rm -r cypress/results/* || true",
+    "prereport": "npm run delete:reports",
+    "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json",
+    "mochawesome:html": "npx marge mochawesome.json",
+    "full:test": "npm run delete:reports && npm run chrome && npm run mochawesome:merge && npm run mochawesome:html"
+  },
+  "author": "Jakub Rylko",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.2.0",
+    "cypress-dark": "^1.1.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-multi-reporters": "^1.6.1",
+    "mocha-junit-reporter": "^2.0.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}
