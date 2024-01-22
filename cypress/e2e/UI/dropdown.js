@@ -22,7 +22,7 @@ describe('Dropdown', () => {
         DropdownPage.dropdown.select(7);
     });
 
-    it.only('Select all options', () => {
+    it('Select all options', () => {
         DropdownPage.womenTab.click();
         DropdownPage.selectAllOptions();
     });
